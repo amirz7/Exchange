@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="end"
+    android:layoutDirection="rtl"
+    android:layout_gravity="end">
+
+    <item
+        android:title="ویرایش نمایش نرخ ها"
+        android:id="@+id/edit"
+        android:icon="@drawable/ic_setting"
+        android:gravity="end"
+        android:layout_gravity="end"/>
+
+    <item
+        android:title="پشتیبانی"
+        android:id="@+id/backup"
+        android:icon="@drawable/ic_send"
+        android:gravity="end"
+        android:layout_gravity="end"/>
+
+    <item
+        android:title="ارسال برنامه به دوستان"
+        android:id="@+id/share"
+        android:icon="@drawable/ic_share"
+        android:gravity="end"
+        android:layout_gravity="end"/>
+
+    <item
+        android:title="سایر محصولات(AD)"
+        android:id="@+id/programs"
+        android:icon="@drawable/ic_programs"
+        android:gravity="end"
+        android:layout_gravity="end"/>
+
+    <item
+        android:title="ارسال نظر"
+        android:id="@+id/star"
+        android:icon="@drawable/ic_star"
+        android:gravity="end"
+        android:layout_gravity="end"/>
+    <item
+        android:title="منبع نرخ ها"
+        android:id="@+id/source"
+        android:icon="@drawable/ic_source"
+        android:gravity="end"
+        android:layout_gravity="end"/>
+
+</menu>
