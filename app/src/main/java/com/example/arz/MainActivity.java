@@ -34,7 +34,6 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
-    private String message = "okeyesh kardam :))";
 
     private GridView gridView;
     private List<GridItem> items = new ArrayList<>();
@@ -58,10 +57,15 @@ public class MainActivity extends AppCompatActivity {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = null;
                 switch (position) {
-                    case 0:
-                        Intent intent = new Intent(MainActivity.this,SecondActivity.class);
+                    case 2:
+                        intent = new Intent(MainActivity.this,SecondActivity.class);
                         startActivity(intent);
+                    case  1:
+                        intent = new Intent(MainActivity.this,SecondActivity.class);
+                        startActivity(intent);
+
                 }
             }
         });

@@ -1,6 +1,7 @@
 package com.example.arz;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,15 +31,17 @@ public class CurrencyRateFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.currency_rate_layout,container,false);
+        View view = inflater.inflate(R.layout.currency_rate_layout,null,false);
 
-
+        Log.i(SecondActivity.class.getSimpleName(),"success");
 
         mRecyclerView = view.findViewById(R.id.recyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         mAdapter = new MainRecyclerAdapter(getContext(),data);
         mRecyclerView.setAdapter(mAdapter);
+
+        Log.i(SecondActivity.class.getSimpleName(),"pass test");
 
 
         return view;
