@@ -34,6 +34,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+    private String message = "okeyesh kardam :))";
 
     private GridView gridView;
     private List<GridItem> items = new ArrayList<>();
