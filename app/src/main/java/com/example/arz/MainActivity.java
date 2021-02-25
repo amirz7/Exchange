@@ -1,6 +1,7 @@
 package com.example.arz;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -23,6 +24,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
@@ -42,15 +44,26 @@ public class MainActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(myToolbar);
         gridView = findViewById(R.id.simpleGridView);
-        items.add(new GridItem("Gold",R.drawable.bitcoin_icon));
-        items.add(new GridItem("price",R.drawable.bitcoin_icon));
-        items.add(new GridItem("dollar",R.drawable.bitcoin_icon));
-        items.add(new GridItem("apple",R.drawable.bitcoin_icon));
-        items.add(new GridItem("android",R.drawable.bitcoin_icon));
-        items.add(new GridItem("bye",R.drawable.bitcoin_icon));
+        items.add(new GridItem("ارز دیجیتال",R.drawable.ic_bitcoin));
+        items.add(new GridItem("سکه و طلا",R.drawable.ic_coins));
+        items.add(new GridItem("ارز",R.drawable.ic_dollor));
+        items.add(new GridItem("نمودار طلا",R.drawable.ic_goldchart));
+        items.add(new GridItem("نمودار ارز",R.drawable.ic_currencychart));
+        items.add(new GridItem("مبدل ارز",R.drawable.ic_exchangecurrency));
 
         MyAdapter myAdapter = new MyAdapter(this,R.layout.main_gride_view_items,items);
         gridView.setAdapter(myAdapter);
+
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (position) {
+                    case 0:
+                        Intent intent = new Intent(MainActivity.this,SecondActivity.class);
+                        startActivity(intent);
+                }
+            }
+        });
     }
 
     @Override

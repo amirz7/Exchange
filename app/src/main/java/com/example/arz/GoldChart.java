@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Description;
@@ -45,11 +48,13 @@ public class GoldChart extends AppCompatActivity {
         LineData lineData;
         LineDataSet lineDataSet;
         ArrayList lineEntries;
+        TextView goldAlertTxtView;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_gold_chart);
             lineChart = findViewById(R.id.lineChart);
+            goldAlertTxtView = (TextView)findViewById(R.id.goldchartTxtView);
             getEntries();
             lineDataSet = new LineDataSet(lineEntries, "");
             lineData = new LineData(lineDataSet);
@@ -57,6 +62,9 @@ public class GoldChart extends AppCompatActivity {
             lineDataSet.setColors(ColorTemplate.JOYFUL_COLORS);
             lineDataSet.setValueTextColor(Color.BLACK);
             lineDataSet.setValueTextSize(18f);
+        }
+        public void gold_alert(View view){
+            Toast.makeText(this, "Gold Alert Clicked", Toast.LENGTH_SHORT).show();
         }
         private void getEntries() {
             lineEntries = new ArrayList<>();

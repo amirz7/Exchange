@@ -8,5 +8,36 @@
     <com.github.mikephil.charting.charts.LineChart
         android:id = "@+id/lineChart"
         android:layout_width = "fill_parent"
-        android:layout_height = "fill_parent" />
+        android:layout_height = "200dp"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lineChart"
+        android:layout_marginTop="16dp"
+        android:layoutDirection="rtl">
+
+        <TextView
+            android:id="@+id/goldchartTxtView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="نرخ گرم طلای 18 عیار در 7 روز اخیر"
+            android:textColor="#FFC018"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:clickable="true"
+            android:onClick="gold_alert"></TextView>
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/splash_background"
+            app:layout_constraintStart_toEndOf="@+id/goldchartTxtView"
+            app:layout_constraintLeft_toRightOf="parent"
+            android:layout_marginRight="50dp"
+            tools:ignore="MissingConstraints"></ImageView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </RelativeLayout>
