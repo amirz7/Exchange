@@ -14,4 +14,13 @@ public class View_Holder extends RecyclerView.ViewHolder {
         super(itemView);
         textView = itemView.findViewById(R.id.titleview);
     }
+
+    public void bind(String data,ItemClickListener clickListener) {
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickListener.onClick(data);
+            }
+        });
+    }
 }

@@ -15,6 +15,7 @@ import com.google.android.material.tabs.TabLayout;
 public class SecondActivity extends AppCompatActivity {
 
 
+    private final String TAG = SecondActivity.class.getSimpleName();
     private View fragment = null;
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -31,6 +32,7 @@ public class SecondActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.dollar_frame,new ContainerFragment(), "HELLO");
+        fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
 
         Log.i(SecondActivity.class.getSimpleName(),"init fragment");
@@ -49,4 +51,6 @@ public class SecondActivity extends AppCompatActivity {
 
 
     }
+
+
 }

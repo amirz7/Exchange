@@ -14,10 +14,12 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<View_Holder> {
 
     private List<String> data;
     private Context context;
+    private ItemClickListener clickListener;
 
-    public MainRecyclerAdapter(Context context,List<String> data) {
+    public MainRecyclerAdapter(Context context,List<String> data,ItemClickListener clickListener) {
         this.context = context;
         this.data = data;
+        this.clickListener = clickListener;
     }
 
     @NonNull
@@ -35,6 +37,8 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<View_Holder> {
         String title = data.get(position);
 
         holder.textView.setText(title);
+
+        holder.bind(title,clickListener);
     }
 
     @Override

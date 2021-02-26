@@ -21,7 +21,7 @@ public class ContainerFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.currency_rate_layout, null, false);
+        View view = inflater.inflate(R.layout.container_layout, null, false);
 
         return view;
     }
