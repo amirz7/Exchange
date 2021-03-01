@@ -10,58 +10,33 @@ import java.util.List;
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 
-    private List<String> items = getItems();
+    private List<Fragment> fragmentList;
+    private List<String> titles;
 
-
-
-    public ViewPagerAdapter(@NonNull FragmentManager fm) {
+    public ViewPagerAdapter(@NonNull FragmentManager fm,List<Fragment> fragmentList,List<String> titles) {
         super(fm);
+        this.fragmentList = fragmentList;
+        this.titles = titles;
     }
 
     @NonNull
     @Override
     public Fragment getItem(int position) {
 
-        Fragment fragment = null;
-
-        switch (position) {
-            case 0:
-                fragment = new CurrencyRateFragment();
-                break;
-            case 1:
-                fragment = new CurrencyRateFragment();
-                break;
-            case 2:
-                fragment = new CurrencyRateFragment();
-        }
-
-        return fragment;
+        return fragmentList.get(position);
     }
 
     @Override
     public int getCount() {
-        return 3;
+        return fragmentList.size();
     }
 
-    public ArrayList<String> getItems() {
-        ArrayList<String> arrayList = new ArrayList<>();
-
-        arrayList.add("apple");
-        arrayList.add("google");
-        arrayList.add("microsoft");
-        return arrayList;
-    }
 
     @Override
     public CharSequence getPageTitle(int position)
     {
-        String title = null;
-        if (position == 0)
-            title = "صرافی ملی";
-        else if (position == 1)
-            title = "بازار آزاد";
-        else if (position == 2)
-            title = "بانک مرکزی";
-        return title;
+        return titles.get(position);
     }
+
+
 }

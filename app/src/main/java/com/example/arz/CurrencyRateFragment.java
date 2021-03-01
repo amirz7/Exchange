@@ -1,12 +1,12 @@
 package com.example.arz;
 
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,7 +22,7 @@ public class CurrencyRateFragment extends Fragment implements ItemClickListener 
     private final String TAG = CurrencyRateFragment.class.getSimpleName();
     private RecyclerView mRecyclerView;
     private MainRecyclerAdapter mAdapter;
-    private List<String> data = getItems();
+    private List<RecyclerItem> data = getItems();
 
 
     @Override
@@ -36,15 +36,11 @@ public class CurrencyRateFragment extends Fragment implements ItemClickListener 
 
         View view = inflater.inflate(R.layout.currency_rate_layout,null,false);
 
-        Log.i(SecondActivity.class.getSimpleName(),"success");
-
         mRecyclerView = view.findViewById(R.id.recyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         mAdapter = new MainRecyclerAdapter(getContext(),data,this);
         mRecyclerView.setAdapter(mAdapter);
-
-        Log.i(SecondActivity.class.getSimpleName(),"pass test");
 
 
         return view;
@@ -53,21 +49,30 @@ public class CurrencyRateFragment extends Fragment implements ItemClickListener 
 
 
 
-    private List<String> getItems() {
+    private List<RecyclerItem> getItems() {
 
-        ArrayList<String> items = new ArrayList<>();
+        ArrayList<RecyclerItem> recyclerItems = new ArrayList<>();
 
-        items.add("Apple");
-        items.add("google");
-        items.add("microsoft");
-        items.add("Linux");
+        recyclerItems.add(new RecyclerItem(R.drawable.ic_coins,"دلار امریکا","بدون تغییر",23540));
+        recyclerItems.add(new RecyclerItem(R.drawable.ic_coins,"یورو","بدون تغییر",13000));
+        recyclerItems.add(new RecyclerItem(R.drawable.ic_coins,"پوند انگلیس","بدون تغییر",12000));
 
-        return items;
+        return recyclerItems;
     }
 
     @Override
-    public void onClick(String data) {
-        Toast.makeText(getContext(),"data is -> " + data,Toast.LENGTH_SHORT).show();
+    public void onClick(RecyclerItem item) {
+
+
+
+        String result = item.getTitle() + " : " + item.getPrice();
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, result);
+        startActivity(Intent.createChooser(intent, "Share"));
+
+
 
     }
 }

@@ -4,5 +4,5 @@ import android.view.View;
 
 public interface ItemClickListener {
 
-    void onClick(String data);
+    void onClick(RecyclerItem item);
 }

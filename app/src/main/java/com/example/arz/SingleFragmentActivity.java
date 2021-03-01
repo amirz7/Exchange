@@ -1,28 +1,27 @@
 package com.example.arz;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.view.View;
-import android.widget.FrameLayout;
+import android.view.MenuItem;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 
-public abstract class SingleFragmentActivity extends FragmentActivity {
+import java.util.List;
 
-    private View fragment = null;
+public abstract class SingleFragmentActivity extends AppCompatActivity {
+
+    private final String TAG = SecondActivity.class.getSimpleName();
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private ViewPagerAdapter viewPagerAdapter;
 
-    public abstract Fragment getFragment();
+    public abstract List<Fragment> getFragmentList();
+    public abstract List<String> getTitles();
 
 
     @Override
@@ -30,16 +29,19 @@ public abstract class SingleFragmentActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dollar_layout);
 
+        Bundle bundle = getIntent().getExtras();
+        String result = bundle.getString("toolbar");
 
-    FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.dollar_frame, getFragment(), "HELLO");
-        fragmentTransaction.commit();
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(myToolbar);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle("نرخ "+result);
 
         viewPager = findViewById(R.id.viewpager);
 
-        viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+        viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(),getFragmentList(),getTitles());
 
         viewPager.setAdapter(viewPagerAdapter);
 
@@ -48,4 +50,12 @@ public abstract class SingleFragmentActivity extends FragmentActivity {
 
 
     }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+        }
+        return true;
+    }
+
 }

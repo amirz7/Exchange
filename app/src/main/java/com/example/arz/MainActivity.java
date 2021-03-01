@@ -61,10 +61,12 @@ public class MainActivity extends AppCompatActivity {
                 switch (position) {
                     case 2:
                         intent = new Intent(MainActivity.this,SecondActivity.class);
+                        intent.putExtra("toolbar",items.get(position).getItemTitle());
                         startActivity(intent);
                         break;
                     case  1:
-                        intent = new Intent(MainActivity.this,SecondActivity.class);
+                        intent = new Intent(MainActivity.this,GoldActivity.class);
+                        intent.putExtra("toolbar", items.get(position).getItemTitle());
                         startActivity(intent);
                         break;
 

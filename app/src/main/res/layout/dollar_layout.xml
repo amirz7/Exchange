@@ -1,36 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appbar"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="#000"
+            android:elevation="4dp"
+            android:foregroundGravity="right"
+            android:gravity="right"
+            android:layoutDirection="ltr"
+            app:titleTextColor="#FFC018" />
 
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tab_layout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:tabGravity="fill"
-                app:tabMode="fixed" />
-
-        </com.google.android.material.appbar.AppBarLayout>
-
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewpager"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+            android:background="#000"
+            app:tabGravity="fill"
+            app:tabMode="fixed"
+            app:tabTextColor="#FFC018" />
+
+    </com.google.android.material.appbar.AppBarLayout>
 
 
-
-    <FrameLayout
-        android:id="@+id/dollar_frame"
+    <TextView
+        android:id="@+id/refreshView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"
+        android:background="#FFC018"
+        android:text="اخرین بروز رسانی نرخ ها : 10:01"
+        android:textAlignment="center"
+        android:textColor="#000"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appbar" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/refreshView" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
