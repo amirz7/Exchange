@@ -69,6 +69,14 @@ public class MainActivity extends AppCompatActivity {
                         intent.putExtra("toolbar", items.get(position).getItemTitle());
                         startActivity(intent);
                         break;
+                    case  0:
+
+                        intent = new Intent(MainActivity.this,DigitalCurrencyActivity.class);
+                        intent.putExtra("toolbar", items.get(position).getItemTitle());
+                        startActivity(intent);
+                        break;
+
+
 
                 }
             }

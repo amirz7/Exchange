@@ -37,6 +37,16 @@ public class SecondActivity extends SingleFragmentActivity {
     }
 
 
+    @Override
+    public List<Integer> getIcons() {
+        ArrayList<Integer> items = new ArrayList<>();
+        items.add(R.drawable.ic_coins);
+        items.add(R.drawable.ic_coins);
+        items.add(R.drawable.ic_coins);
+        return items;
+
+    }
+
     private List<Fragment> getItems() {
         ArrayList<Fragment> arrayList = new ArrayList();
         arrayList.add(new CurrencyRateFragment());

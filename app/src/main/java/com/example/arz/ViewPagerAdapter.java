@@ -12,11 +12,20 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     private List<Fragment> fragmentList;
     private List<String> titles;
+    private List<Integer> iconList;
 
     public ViewPagerAdapter(@NonNull FragmentManager fm,List<Fragment> fragmentList,List<String> titles) {
         super(fm);
         this.fragmentList = fragmentList;
         this.titles = titles;
+    }
+
+    public void setIcons(List<Integer> icons) {
+        this.iconList = icons;
+    }
+
+    public List<Integer> getIconList() {
+        return iconList;
     }
 
     @NonNull
@@ -30,6 +39,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return fragmentList.size();
     }
+
 
 
     @Override

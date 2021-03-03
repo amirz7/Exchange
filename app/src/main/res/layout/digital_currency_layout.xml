@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000"
+        android:elevation="4dp"
+        android:foregroundGravity="right"
+        android:gravity="right"
+        android:layoutDirection="ltr"
+        app:titleTextColor="#FFC018" />
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appbar">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/persianDateView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="پنجشنبه ۷ اسفند ۱۳۹۹"
+            android:layout_centerHorizontal="true"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:textSize="30dp"/>
+
+
+        <TextView
+            android:id="@+id/globalDateView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="21 February 2021"
+            android:textColor="#A9A9A9"
+            android:textSize="17dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/persianDateView"/>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/refreshCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_below="@+id/globalDateView"
+                android:backgroundTint="#FFC018"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="12dp"
+                android:layout_centerHorizontal="true"
+
+                >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:textColor="#000"
+                        android:text="آخرین به روز رسانی نرخ ها : ۱۰:۰۱"
+                        android:textSize="18dp" />
+
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/digital_currency_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardContainer" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

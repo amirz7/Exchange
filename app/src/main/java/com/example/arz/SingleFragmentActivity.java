@@ -22,6 +22,7 @@ public abstract class SingleFragmentActivity extends AppCompatActivity {
 
     public abstract List<Fragment> getFragmentList();
     public abstract List<String> getTitles();
+    public abstract List<Integer> getIcons();
 
 
     @Override
@@ -42,11 +43,13 @@ public abstract class SingleFragmentActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.viewpager);
 
         viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(),getFragmentList(),getTitles());
+        viewPagerAdapter.setIcons(getIcons());
 
         viewPager.setAdapter(viewPagerAdapter);
 
         tabLayout = findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(viewPager);
+
 
 
     }
